@@ -652,7 +652,7 @@ function get_suggest() {
 	}
 	var script = document.createElement('script');
 	script.type = 'text/javascript';
-	script.src = 'http://sugs.m.sm.cn/web?t=w&uc_param_str=dnnwnt&scheme=http&fr=android&bid=1&q=' + encodeURIComponent(kw) + '&_=' + new Date().getTime() + '&callback=jsonp3';
+	script.src = 'https://sugs.m.sm.cn/web?t=w&uc_param_str=dnnwnt&scheme=http&fr=android&bid=1&q=' + encodeURIComponent(kw) + '&_=' + new Date().getTime() + '&callback=jsonp3';
 	var head = document.querySelector('head');
 	script.onload = function() {
       head.removeChild(script);
