@@ -27,7 +27,7 @@
               onpaste="get_suggest()" autocomplete="off" id="search_input" placeholder="✎...  偷得浮生半日闲～"></div>
         </span>
         <div id="suggest" style="display:none">
-          <ul class="sugList" id="suglist"></ul>
+          <ul class="sugList" id="sugList"></ul>
           <!-- <div class="close" onclick="close_sug()">收起</div> -->
         </div>
       </form>
@@ -106,7 +106,7 @@
       {
         html += '<li>' + v.w + '<b></b></li>';
       });
-      document.getElementById('suglist').innerHTML = html;
+      document.getElementById('sugList').innerHTML = html;
       suggest.style.display = 'block';
     }
     function close_sug()
@@ -135,7 +135,7 @@
       } return false;
     }
 
-    document.getElementById('suglist').addEventListener('click', function (e)
+    document.getElementById('sugList').addEventListener('click', function (e)
     {
       var input = document.getElementById('search_input');
       if (e.target.tagName == 'B') {
