@@ -31,7 +31,7 @@
 ## 没有演示图的源码都是流氓
 
 ![演示图](https://i.loli.net/2020/01/04/J3rUoWS7l1pX6wz.png)
-![演示图](http://wx1.sinaimg.cn/large/006DcXfEgy1fzld8gnu7aj30u01o0aof.jpg)
+![演示图](https://i.loli.net/2020/01/04/hMCd5OyPl9LJXsY.jpg)
 
 ### 感谢：
   [Live2D](https://www.live2d.com/)
