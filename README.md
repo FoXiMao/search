@@ -14,6 +14,6 @@
 ![演示图](http://wx1.sinaimg.cn/large/006DcXfEgy1fzld8gnu7aj30u01o0aof.jpg)
 
 ### 感谢：
-    [Live2D](https://www.live2d.com/)
-    [奇趣保罗-Pio](https://docs.paul.ren/pio/#/)
+  [Live2D](https://www.live2d.com/)
+  [奇趣保罗-Pio](https://docs.paul.ren/pio/#/)
 
