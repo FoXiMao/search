@@ -34,6 +34,6 @@
 ![演示图](https://i.loli.net/2020/01/04/hMCd5OyPl9LJXsY.jpg)
 
 ### 感谢：
-  [Live2D](https://www.live2d.com/)
-  [奇趣保罗-Pio](https://docs.paul.ren/pio/#/)
+  [@Live2D | ](https://www.live2d.com/)
+  [@奇趣保罗-Pio](https://docs.paul.ren/pio/#/)
 
