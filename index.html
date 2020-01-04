@@ -1,0 +1,151 @@
+<!-- author：Citrons
+     time:25/12/2019
+     Website:https://www.citrons.cn/ 
+    -->
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <meta content="cn" http-equiv="Content-Language" />
+      <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+      <meta name="viewport" content="width=device-width, initial-scale=0.9">
+      <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+      <link rel="shortcut icon" type="image/x-icon" href="./img/icon.png"  media="screen" />
+        <link rel="stylesheet" href="./css/index.css">
+      <title>往后余生，与汝为伴</title>
+    </head>
+    
+    <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+      <div id="content">
+        <div class="search_part">
+          <img class="smaller" src="./img/Google.gif" width=33%></img>
+          <form id="search_form" onsubmit="return search()" class="search_bar">
+            <input type="submit" id="search_submit" value="🔍"> 
+            <span><i id="clear" onclick="clear_seach()"></i>
+              <div class="si"><input class="search" type="text" value="" onkeyup="get_suggest()" onfocus="get_suggest()"
+                  onpaste="get_suggest()" autocomplete="off" id="search_input" placeholder="✎...  偷得浮生半日闲～"></div>
+            </span>
+            <div id="suggest" style="display:none">
+              <ul class="sugList" id="suglist"></ul>
+              <!-- <div class="close" onclick="close_sug()">收起</div> -->
+            </div>
+          </form>
+        </div>
+        <br />
+        <!--以下都是适配的谷歌浏览器，如需替换，请自己动手-->
+        <div class="box">
+          <a href="https://www.citrons.cn/"></a>
+          <p><img class="icon" src="https://citrons-1256634104.cos.ap-shanghai.myqcloud.com/logo.png"></p>
+          <p class="url">Citrons'Blog</p>
+        </div>
+    
+        <div class="box">
+          <a href="chrome://history/"></a>
+          <p><img class="icon" src="img/lishi.png"></p>
+          <p class="url">足迹</p>
+        </div>
+    
+        <div class="box">
+          <a href="chrome://bookmarks/"></a>
+          <p><img class="icon" src="img/shuqian.png"></p>
+          <p class="url">书签</p>
+        </div>
+    
+        <div class="box">
+          <a href="chrome://settings/"></a>
+          <p><img class="icon" src="img/427296.png"></p>
+          <p class="url">浏览器设置</p>
+        </div>
+    
+      </div>
+    
+      <br>
+      </div>
+    
+      <script type="text/javascript">
+        var last_kw = '';
+        var max_sug_len = 1; //搜索建议最短触发长度
+    
+        /*获取搜索建议
+        采用的神马搜索的服务
+        */
+        function get_suggest()
+        {
+          var kw = document.getElementById('search_input').value;
+          var clear = document.getElementById('clear');
+          if (kw) clear.style.display = 'block';
+          else clear.style.display = 'none';
+          if (kw == last_kw) return;
+          last_kw = kw;
+          if (!kw || kw.length < max_sug_len) {
+            close_sug();
+            return;
+          }
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = 'https://sugs.m.sm.cn/web?t=w&uc_param_str=dnnwnt&scheme=http&fr=android&bid=1&q=' + encodeURIComponent(kw) + '&_=' + new Date().getTime() + '&callback=jsonp3';
+          var head = document.querySelector('head');
+          script.onload = function ()
+          {
+            head.removeChild(script);
+          };
+          head.appendChild(script);
+        }
+        function jsonp3(res)
+        {
+          var suggest = document.getElementById('suggest');
+          if (!res.r || !res.r.length) {
+            suggest.style.display = 'none';
+            return;
+          }
+          var html = '';
+          res.r.forEach(function (v)
+          {
+            html += '<li>' + v.w + '<b></b></li>';
+          });
+          document.getElementById('suglist').innerHTML = html;
+          suggest.style.display = 'block';
+        }
+        function close_sug()
+        {
+          last_kw = '';
+          document.getElementById('suggest').style.display = 'none';
+        }
+        function move_input()
+        {
+          document.body.scrollTop = document.getElementById('search_form').offsetTop - 2;
+        }
+        function clear_seach()
+        {
+          var input = document.getElementById('search_input');
+          input.value = '';
+          document.getElementById('clear').style.display = 'none';
+          close_sug();
+          input.focus();
+        }
+        /*采用百度搜索引擎（我发现百度搜索引擎更符合国人的搜搜习惯）*/
+        function search()
+        {
+          if (document.getElementById("search_input").value != "") {
+            window.location.href = "https://www.baidu.com/s?wd=" + encodeURIComponent(document.getElementById("search_input").value) + "&from=smor&safe=1&snum=1";
+            document.getElementById("search_input").value = "";
+          } return false;
+        }
+    
+        document.getElementById('suglist').addEventListener('click', function (e)
+        {
+          var input = document.getElementById('search_input');
+          if (e.target.tagName == 'B') {
+            input.value = e.target.parentNode.firstChild.textContent;
+            input.focus();
+          } else if (e.target.tagName == 'LI') {
+            input.value = e.target.firstChild.textContent;
+            close_sug();
+            search();
+          }
+        });
+        window.addEventListener('resize', move_input);
+      </script>
+     
+    </body>
+    
+    </html>
