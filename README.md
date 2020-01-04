@@ -15,17 +15,17 @@
   答：因为图片放在本地，加载速度较慢，可以放入对象储存（COS/OSS）进行引用。
  2. 如何设置跨域访问？
  如果你使用的不是虚拟空间而是自己的 VPS 服务器，同时打算多域名使用，最简单的方法就是改回同域名，将模型放在插件的 models 文件夹内。你还可以通过修改 Nginx 的站点配置解决。
- > location ^~ 你的站点路径
- > {
- >    add_header Access-Control-Allow-Origin 允许访问的网站地址，包括协议;
- > }
+ > location ^~ 你的站点路径 <br>
+ > {<br>
+ >    add_header Access-Control-Allow-Origin 允许访问的网站地址，包括协议;<br>
+ > }<br>
 ------------
 例如：你的看板娘模型在 www.citrons.cn/model，并只能允许 citrons.cn 访问
 
- > location ^~ /model
- > {
- >   add_header Access-Control-Allow-Origin citrons.cn;
- > }
+ > location ^~ /model<br>
+ > {<br>
+ >   add_header Access-Control-Allow-Origin citrons.cn;<br>
+ > }<br>
 
 
 ## 没有演示图的源码都是流氓
