@@ -321,4 +321,12 @@
       background-repeat: no-repeat;
       background-color: #fff;
     } 
+    .box {
+      -webkit-animation: fadeInDown 1s;
+      animation: fadeInDown 1s;
+      position: relative;
+      display: inline-block;
+      width: 100px;
+      border: 0;
+    }
   }
