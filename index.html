@@ -11,6 +11,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
       <link rel="shortcut icon" type="image/x-icon" href="./img/icon.png" media="screen" />
       <link rel="stylesheet" href="./css/index.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <!-- 引用看板娘交互所需的样式表 -->
       <link href='./static/pio.css' rel='stylesheet' type='text/css' />
       <title>往后余生，与汝为伴</title>
@@ -34,27 +35,27 @@
         </div>
         <br />
         <!--以下都是适配的谷歌浏览器，如需替换，请自己动手-->
-        <div class="box">
-          <a href="https://www.citrons.cn/"></a>
+        <div class="box" id="btn">
+          <a id="blog" href="#"></a>
           <p><img class="icon" src="./img/icon.png"></p>
-          <p class="url">Citrons</p>
+          <p id="blogUrl" class="url"></p>
         </div>
     
-        <div class="box">
-          <a href="https://www.google.com/"></a>
+        <div class="box" id="btn1">
+          <a id="google" href="#"></a>
           <p><img class="icon" src="./img/google.png"></p>
-          <p class="url">Google</p>
+          <p id="googleUrl" class="url"></p>
         </div>
     
-        <div class="box">
-          <a href="https://www.baidu.com/"></a>
+        <div class="box" id="btn2" >
+          <a id="baiDu" href="#"></a>
           <p><img class="icon" src="./img/baiDu.png"></p>
-          <p class="url">BaiDu</p>
+          <p id="baiDuUrl" class="url"></p>
         </div>
-        <div class="box">
-          <a href="https://www.bilibili.com/"></a>
+        <div class="box" id="btn3">
+          <a id="biLi" href="#"></a>
           <p><img class="icon" src="./img/Bilibili.png"></p>
-          <p class="url">Bilibili</p>
+          <p id="biLiUrl" class="url"></p>
         </div>
     
       </div>
@@ -65,6 +66,7 @@
         <div class="pio-action"></div>
         <canvas id="pio" width="200" height="200"></canvas>
     </div>
+    <script src="./js/index.js"></script>
       <script type="text/javascript">
         var last_kw = '';
         var max_sug_len = 1; //搜索建议最短触发长度
@@ -150,7 +152,6 @@
         });
         window.addEventListener('resize', move_input);
       </script>
-    
     <!-- 引用 Live2D 核心组件 -->
     <script src='./static/l2d.js'></script>
     <!-- 引用看板娘交互组件 -->
