@@ -6,11 +6,11 @@
  * }
  */
 
- import {Cart} from './Cart'
+//  import {Cart} from './Cart'
  import {User} from './User'
- import {Address} from './Address'
+//  import {Address} from './Address'
  export default{
-   Cart,
+  //  Cart,
    User,
-   Address
+  //  Address
  }
