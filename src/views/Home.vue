@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-
+    
   </div>
 </template>
 
@@ -13,5 +13,24 @@ export default {
   // components: {
   //   HelloWorld
   // }
+  data() {
+    return{
+      // title: '偷得浮生半日闲~'
+    }
+  },
+  mounted(){
+    // document.title = this.title
+  },
+  methods: {
+
+  },
+  created() {
+
+  }
+
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>
