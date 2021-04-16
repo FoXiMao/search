@@ -1,4 +1,4 @@
-const APP_STORAGE_NAME = 'shengxian_app'
+const APP_STORAGE_NAME = 'Citrons_search'
 import {isObject} from 'lodash'
 class Storage {
 
