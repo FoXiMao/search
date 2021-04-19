@@ -1,22 +1,24 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
     <router-view/>
   </div>
 </template>
+ 
 <script>
+
 function initFontSize (doc, win) {
   const docEl = doc.documentElement
   const resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
   const recalc = function() {
-      var clientWidth = docEl.clientWidth
-      if (!clientWidth) {
-        return
-      }
-      docEl.style.fontSize =  clientWidth / 7.5 + 'px'
+      // var clientWidth = docEl.clientWidth
+      let viewWidth = docEl.clientWidth || window.innerWidth;
+      let size = 100 / 1920;
+      docEl.style.fontSize = (viewWidth * size) + 'px';
+      // docEl.style.backgroundColor = '#5b5ca9';
+      // if (!clientWidth) {
+      //   return
+      // }
+      // docEl.style.fontSize =  clientWidth / 7.5 + 'px'
     }
   if (!doc.addEventListener) {
     return
@@ -25,26 +27,14 @@ function initFontSize (doc, win) {
   doc.addEventListener('DOMContentLoaded', recalc, false)
 }
 initFontSize(document,window)
+
+export default {
+}
 </script>
 <style lang="scss">
-// #app {
-//   font-family: Avenir, Helvetica, Arial, sans-serif;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-//   text-align: center;
-//   color: #2c3e50;
-// }
-
-// #nav {
-//   padding: 30px;
-
-//   a {
-//     font-weight: bold;
-//     color: #2c3e50;
-
-//     &.router-link-exact-active {
-//       color: #42b983;
-//     }
-//   }
-// }
+ html{
+        position: relative;
+        // background: #F2F2F2;
+        font-size: 100px;
+      }
 </style>

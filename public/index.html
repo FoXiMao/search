@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="icon" href="<%= BASE_URL %>favicon.png">
+    <!-- 引用看板娘交互所需的样式表 -->
+    <link href='./static/pio.css' rel='stylesheet' type='text/css' />
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
@@ -12,6 +14,24 @@
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
+    <div class="pio-container left" >
+      <div class="pio-action"></div>
+      <canvas id="pio" width="200" height="200"></canvas>
+  </div>
     <!-- built files will be auto injected -->
   </body>
+  <!-- 引用 Live2D 核心组件 -->
+  <script src='./static/l2d.js'></script>
+  <!-- 引用看板娘交互组件 -->
+  <script src='./static/pio.js'></script>
+      <script type="text/javascript">
+    var pio = new Paul_Pio({
+      "mode": "model",
+      "hidden": false,
+      "content": {
+      },
+      "model": ["./model/model.json"]
+  });
+      </script>
+
 </html>
